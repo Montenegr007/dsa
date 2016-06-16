@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.collections.ObservableList?>
+<?import javafx.collections.FXCollections?>
+
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="690.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ContactGUI.ContactTable">
+    <items>
+        <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="41.0" prefWidth="698.0">
+            <children>
+                <MenuBar layoutX="-8.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="41.0" prefWidth="369.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="329.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Файл">
+                            <items>
+                                <MenuItem fx:id="AddContact" mnemonicParsing="false" onAction="#addContact" text="Добавить контакт" />
+                                <MenuItem fx:id="OpenContact" mnemonicParsing="false" onAction="#openContact" text="Просмотреть/Редактировать" />
+                                <MenuItem fx:id="DeleteContact" mnemonicParsing="false" onAction="#deleteContact" text="Удалить контакт" />
+                                <MenuItem fx:id="ExitContact" mnemonicParsing="false" onAction="#exitContact" text="Выход" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Бизнес-процессы">
+                            <items>
+                                <MenuItem fx:id="CreateDeal" mnemonicParsing="false" text="Создать сделку" />
+                                <MenuItem fx:id="SendSuggestion" mnemonicParsing="false" text="Создать предложение" />
+                                <MenuItem fx:id="SendInvoice" mnemonicParsing="false" text="Создать счет" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Помощь">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="О программе" />
+                            </items>
+                        </Menu>
+                    </menus>
+                    <padding>
+                        <Insets top="5.0" />
+                    </padding>
+                </MenuBar>
+            <TextField fx:id="SearchField" layoutX="487.0" layoutY="8.0" onAction="#searchContact" prefHeight="25.0" prefWidth="197.0" />
+            <Label layoutX="437.0" layoutY="12.0" text="Поиск" />
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="663.0" prefWidth="698.0">
+            <children>
+                <TableView fx:id="ContactTable" onMouseClicked="#contactSelect" prefHeight="641.0" prefWidth="698.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn fx:id="MenuColumn" prefWidth="46.0" sortable="true" />
+                        <TableColumn fx:id="IdColumn" prefWidth="55.0" sortable="true" text="Id" />
+                        <TableColumn fx:id="LastnameColumn" prefWidth="99.0" sortable="true" text="Фамилия" />
+                        <TableColumn fx:id="FirstnameColumn" prefWidth="90.0" text="Имя" />
+                        <TableColumn fx:id="TypeColumn" prefWidth="106.0" text="Тип контакта" />
+                        <TableColumn fx:id="TelColumn" prefWidth="100.0" text="Телефон" />
+                        <TableColumn fx:id="EmailColumn" minWidth="0.0" prefWidth="100.0" text="Email" />
+                        <TableColumn fx:id="ManagerColumn" prefWidth="140.0" text="Ответственный" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </items>
+</SplitPane>
