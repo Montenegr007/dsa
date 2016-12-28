@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DealsEditDlg" widgetVar="DealsEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{resources1.EditDealsTitle}">
+            <h:form id="DealsEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dealsController.selected != null}">
+                        <p:outputLabel value="#{resources1.EditDealsLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{dealsController.selected.id}" title="#{resources1.EditDealsTitle_id}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_id}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_contactId}" for="contactId" />
+                        <p:inputText id="contactId" value="#{dealsController.selected.contactId}" title="#{resources1.EditDealsTitle_contactId}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_contactId}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_adults}" for="adults" />
+                        <p:inputText id="adults" value="#{dealsController.selected.adults}" title="#{resources1.EditDealsTitle_adults}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_adults}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_childrens}" for="childrens" />
+                        <p:inputText id="childrens" value="#{dealsController.selected.childrens}" title="#{resources1.EditDealsTitle_childrens}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_childrens}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_source}" for="source" />
+                        <p:inputText id="source" value="#{dealsController.selected.source}" title="#{resources1.EditDealsTitle_source}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_comment}" for="comment" />
+                        <p:inputText id="comment" value="#{dealsController.selected.comment}" title="#{resources1.EditDealsTitle_comment}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_mainServiceType}" for="mainServiceType" />
+                        <p:inputText id="mainServiceType" value="#{dealsController.selected.mainServiceType}" title="#{resources1.EditDealsTitle_mainServiceType}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_mainServiceType}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_serviceName}" for="serviceName" />
+                        <p:inputText id="serviceName" value="#{dealsController.selected.serviceName}" title="#{resources1.EditDealsTitle_serviceName}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_serviceDetails}" for="serviceDetails" />
+                        <p:inputText id="serviceDetails" value="#{dealsController.selected.serviceDetails}" title="#{resources1.EditDealsTitle_serviceDetails}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalInfo}" for="additionalInfo" />
+                        <p:inputText id="additionalInfo" value="#{dealsController.selected.additionalInfo}" title="#{resources1.EditDealsTitle_additionalInfo}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_touristTax}" for="touristTax" />
+                        <p:inputText id="touristTax" value="#{dealsController.selected.touristTax}" title="#{resources1.EditDealsTitle_touristTax}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_deposite}" for="deposite" />
+                        <p:inputText id="deposite" value="#{dealsController.selected.deposite}" title="#{resources1.EditDealsTitle_deposite}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_webUrl}" for="webUrl" />
+                        <p:inputText id="webUrl" value="#{dealsController.selected.webUrl}" title="#{resources1.EditDealsTitle_webUrl}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalService1}" for="additionalService1" />
+                        <p:inputText id="additionalService1" value="#{dealsController.selected.additionalService1}" title="#{resources1.EditDealsTitle_additionalService1}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalService1DsaPrice}" for="additionalService1DsaPrice" />
+                        <p:inputText id="additionalService1DsaPrice" value="#{dealsController.selected.additionalService1DsaPrice}" title="#{resources1.EditDealsTitle_additionalService1DsaPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalService1PartnerPrice}" for="additionalService1PartnerPrice" />
+                        <p:inputText id="additionalService1PartnerPrice" value="#{dealsController.selected.additionalService1PartnerPrice}" title="#{resources1.EditDealsTitle_additionalService1PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalService2}" for="additionalService2" />
+                        <p:inputText id="additionalService2" value="#{dealsController.selected.additionalService2}" title="#{resources1.EditDealsTitle_additionalService2}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalService2DsaPrice}" for="additionalService2DsaPrice" />
+                        <p:inputText id="additionalService2DsaPrice" value="#{dealsController.selected.additionalService2DsaPrice}" title="#{resources1.EditDealsTitle_additionalService2DsaPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_additionalService2PartnerPrice}" for="additionalService2PartnerPrice" />
+                        <p:inputText id="additionalService2PartnerPrice" value="#{dealsController.selected.additionalService2PartnerPrice}" title="#{resources1.EditDealsTitle_additionalService2PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p1StartDate}" for="p1StartDate" />
+                        <p:calendar id="p1StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p1StartDate}" title="#{resources1.EditDealsTitle_p1StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p1EndDate}" for="p1EndDate" />
+                        <p:calendar id="p1EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p1EndDate}" title="#{resources1.EditDealsTitle_p1EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p1AmountOfDays}" for="p1AmountOfDays" />
+                        <p:inputText id="p1AmountOfDays" value="#{dealsController.selected.p1AmountOfDays}" title="#{resources1.EditDealsTitle_p1AmountOfDays}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p1DsaPrice}" for="p1DsaPrice" />
+                        <p:inputText id="p1DsaPrice" value="#{dealsController.selected.p1DsaPrice}" title="#{resources1.EditDealsTitle_p1DsaPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p1PartnerPrice}" for="p1PartnerPrice" />
+                        <p:inputText id="p1PartnerPrice" value="#{dealsController.selected.p1PartnerPrice}" title="#{resources1.EditDealsTitle_p1PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p1Fix}" for="p1Fix" />
+                        <p:inputText id="p1Fix" value="#{dealsController.selected.p1Fix}" title="#{resources1.EditDealsTitle_p1Fix}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_p1Fix}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p2StartDate}" for="p2StartDate" />
+                        <p:calendar id="p2StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p2StartDate}" title="#{resources1.EditDealsTitle_p2StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p2EndDate}" for="p2EndDate" />
+                        <p:calendar id="p2EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p2EndDate}" title="#{resources1.EditDealsTitle_p2EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p2AmountOfDays}" for="p2AmountOfDays" />
+                        <p:inputText id="p2AmountOfDays" value="#{dealsController.selected.p2AmountOfDays}" title="#{resources1.EditDealsTitle_p2AmountOfDays}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p2DsaPrice}" for="p2DsaPrice" />
+                        <p:inputText id="p2DsaPrice" value="#{dealsController.selected.p2DsaPrice}" title="#{resources1.EditDealsTitle_p2DsaPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p2PartnerPrice}" for="p2PartnerPrice" />
+                        <p:inputText id="p2PartnerPrice" value="#{dealsController.selected.p2PartnerPrice}" title="#{resources1.EditDealsTitle_p2PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p2Fix}" for="p2Fix" />
+                        <p:inputText id="p2Fix" value="#{dealsController.selected.p2Fix}" title="#{resources1.EditDealsTitle_p2Fix}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_p2Fix}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p3StartDate}" for="p3StartDate" />
+                        <p:calendar id="p3StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p3StartDate}" title="#{resources1.EditDealsTitle_p3StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p3EndDate}" for="p3EndDate" />
+                        <p:calendar id="p3EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p3EndDate}" title="#{resources1.EditDealsTitle_p3EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p3AmountOfDays}" for="p3AmountOfDays" />
+                        <p:inputText id="p3AmountOfDays" value="#{dealsController.selected.p3AmountOfDays}" title="#{resources1.EditDealsTitle_p3AmountOfDays}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p3DsaPrice}" for="p3DsaPrice" />
+                        <p:inputText id="p3DsaPrice" value="#{dealsController.selected.p3DsaPrice}" title="#{resources1.EditDealsTitle_p3DsaPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p3PartnerPrice}" for="p3PartnerPrice" />
+                        <p:inputText id="p3PartnerPrice" value="#{dealsController.selected.p3PartnerPrice}" title="#{resources1.EditDealsTitle_p3PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p3Fix}" for="p3Fix" />
+                        <p:inputText id="p3Fix" value="#{dealsController.selected.p3Fix}" title="#{resources1.EditDealsTitle_p3Fix}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_p3Fix}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p4StartDate}" for="p4StartDate" />
+                        <p:calendar id="p4StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p4StartDate}" title="#{resources1.EditDealsTitle_p4StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p4EndDate}" for="p4EndDate" />
+                        <p:calendar id="p4EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p4EndDate}" title="#{resources1.EditDealsTitle_p4EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p4AmountOfDays}" for="p4AmountOfDays" />
+                        <p:inputText id="p4AmountOfDays" value="#{dealsController.selected.p4AmountOfDays}" title="#{resources1.EditDealsTitle_p4AmountOfDays}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p4DsaPrice}" for="p4DsaPrice" />
+                        <p:inputText id="p4DsaPrice" value="#{dealsController.selected.p4DsaPrice}" title="#{resources1.EditDealsTitle_p4DsaPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p4PartnerPrice}" for="p4PartnerPrice" />
+                        <p:inputText id="p4PartnerPrice" value="#{dealsController.selected.p4PartnerPrice}" title="#{resources1.EditDealsTitle_p4PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_p4Fix}" for="p4Fix" />
+                        <p:inputText id="p4Fix" value="#{dealsController.selected.p4Fix}" title="#{resources1.EditDealsTitle_p4Fix}" required="true" requiredMessage="#{resources1.EditDealsRequiredMessage_p4Fix}"/>
+                        <p:outputLabel value="#{resources1.EditDealsLabel_discountDsaPerc}" for="discountDsaPerc" />
+                        <p:inputText id="discountDsaPerc" value="#{dealsController.selected.discountDsaPerc}" title="#{resources1.EditDealsTitle_discountDsaPerc}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_discountPartnerPerc}" for="discountPartnerPerc" />
+                        <p:inputText id="discountPartnerPerc" value="#{dealsController.selected.discountPartnerPerc}" title="#{resources1.EditDealsTitle_discountPartnerPerc}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_discountDsaEuro}" for="discountDsaEuro" />
+                        <p:inputText id="discountDsaEuro" value="#{dealsController.selected.discountDsaEuro}" title="#{resources1.EditDealsTitle_discountDsaEuro}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_discountPartnerEuro}" for="discountPartnerEuro" />
+                        <p:inputText id="discountPartnerEuro" value="#{dealsController.selected.discountPartnerEuro}" title="#{resources1.EditDealsTitle_discountPartnerEuro}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_avansDsaPerc}" for="avansDsaPerc" />
+                        <p:inputText id="avansDsaPerc" value="#{dealsController.selected.avansDsaPerc}" title="#{resources1.EditDealsTitle_avansDsaPerc}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_avansDsaEuro}" for="avansDsaEuro" />
+                        <p:inputText id="avansDsaEuro" value="#{dealsController.selected.avansDsaEuro}" title="#{resources1.EditDealsTitle_avansDsaEuro}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_avansPartnerCalc}" for="avansPartnerCalc" />
+                        <p:inputText id="avansPartnerCalc" value="#{dealsController.selected.avansPartnerCalc}" title="#{resources1.EditDealsTitle_avansPartnerCalc}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_avansPartnerPaid}" for="avansPartnerPaid" />
+                        <p:inputText id="avansPartnerPaid" value="#{dealsController.selected.avansPartnerPaid}" title="#{resources1.EditDealsTitle_avansPartnerPaid}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_commonPriceDsa}" for="commonPriceDsa" />
+                        <p:inputText id="commonPriceDsa" value="#{dealsController.selected.commonPriceDsa}" title="#{resources1.EditDealsTitle_commonPriceDsa}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_commonPricePartner}" for="commonPricePartner" />
+                        <p:inputText id="commonPricePartner" value="#{dealsController.selected.commonPricePartner}" title="#{resources1.EditDealsTitle_commonPricePartner}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_deltaPartner}" for="deltaPartner" />
+                        <p:inputText id="deltaPartner" value="#{dealsController.selected.deltaPartner}" title="#{resources1.EditDealsTitle_deltaPartner}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_profitDsa}" for="profitDsa" />
+                        <p:inputText id="profitDsa" value="#{dealsController.selected.profitDsa}" title="#{resources1.EditDealsTitle_profitDsa}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_managerBonus}" for="managerBonus" />
+                        <p:inputText id="managerBonus" value="#{dealsController.selected.managerBonus}" title="#{resources1.EditDealsTitle_managerBonus}" />
+                        <p:outputLabel value="#{resources1.EditDealsLabel_agentBonus}" for="agentBonus" />
+                        <p:inputText id="agentBonus" value="#{dealsController.selected.agentBonus}" title="#{resources1.EditDealsTitle_agentBonus}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{dealsController.update}" value="#{resources1.Save}" update="display,:DealsListForm:datalist,:growl" oncomplete="handleSubmit(args, 'DealsEditDialog');"/>
+                    <p:commandButton value="#{resources1.Cancel}" onclick="DealsEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

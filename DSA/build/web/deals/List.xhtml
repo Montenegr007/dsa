@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="DSA CRM"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="DealsListForm">
+                <p:scrollPanel>
+                    <p:dataTable id="datalist" value="#{dealsController.items}" var="item" widgetVar="dealsTable"
+                                 selectionMode="single" selection="#{dealsController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="15"
+                                 rowsPerPageTemplate="15,30,45"                                 
+                                 >
+
+                       
+                        <f:facet name="header">
+                            
+                            <h:outputLabel value="СПИСОК СДЕЛОК" style="font-size: 18px"/>
+                            <p:inputText id="globalFilter" onkeyup="PF('dealsTable').filter()" style="float: left; height: 12px; width: 150px" placeholder="Найти контакт"/>
+
+                           
+                            <p:commandButton id="toggler" type="button" value="Настроить" style="float: right; height: 22px; font-size: 10px !important; margin-bottom: 5px !important" icon="ui-icon-calculator"  />
+                            <p:columnToggler datasource="datalist" trigger="toggler" />
+                           
+                                       
+                        </f:facet>  
+                        
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_contactId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.contactId}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_adults}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adults}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_childrens}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.childrens}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_source}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.source}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_comment}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comment}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_mainServiceType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mainServiceType}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_serviceName}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceName}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_serviceDetails}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serviceDetails}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalInfo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalInfo}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_touristTax}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.touristTax}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_deposite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deposite}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_webUrl}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.webUrl}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalService1}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalService1}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalService1DsaPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalService1DsaPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalService1PartnerPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalService1PartnerPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalService2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalService2}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalService2DsaPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalService2DsaPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_additionalService2PartnerPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.additionalService2PartnerPrice}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p1StartDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p1StartDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p1EndDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p1EndDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p1AmountOfDays}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p1AmountOfDays}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p1DsaPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p1DsaPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p1PartnerPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p1PartnerPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p1Fix}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p1Fix}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p2StartDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p2StartDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p2EndDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p2EndDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p2AmountOfDays}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p2AmountOfDays}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p2DsaPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p2DsaPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p2PartnerPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p2PartnerPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p2Fix}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p2Fix}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p3StartDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p3StartDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p3EndDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p3EndDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p3AmountOfDays}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p3AmountOfDays}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p3DsaPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p3DsaPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p3PartnerPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p3PartnerPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p3Fix}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p3Fix}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p4StartDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p4StartDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p4EndDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p4EndDate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p4AmountOfDays}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p4AmountOfDays}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p4DsaPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p4DsaPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p4PartnerPrice}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p4PartnerPrice}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_p4Fix}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.p4Fix}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_discountDsaPerc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discountDsaPerc}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_discountPartnerPerc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discountPartnerPerc}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_discountDsaEuro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discountDsaEuro}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_discountPartnerEuro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.discountPartnerEuro}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_avansDsaPerc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.avansDsaPerc}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_avansDsaEuro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.avansDsaEuro}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_avansPartnerCalc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.avansPartnerCalc}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_avansPartnerPaid}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.avansPartnerPaid}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_commonPriceDsa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.commonPriceDsa}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_commonPricePartner}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.commonPricePartner}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_deltaPartner}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.deltaPartner}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_profitDsa}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.profitDsa}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_managerBonus}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.managerBonus}"/>
+                        </p:column>
+                        <p:column visible="false">
+                            <f:facet name="header">
+                                <h:outputText value="#{resources1.ListDealsTitle_agentBonus}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.agentBonus}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{resources1.Create}" actionListener="#{dealsController.prepareCreate}" update=":DealsCreateForm" oncomplete="PF('DealsCreateDialog').show()" style="background-color: #00FF00"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{resources1.View}" update=":DealsViewForm" oncomplete="PF('DealsViewDialog').show()" disabled="#{empty dealsController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{resources1.Edit}" update=":DealsEditForm" oncomplete="PF('DealsEditDialog').show()" disabled="#{empty dealsController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{resources1.Delete}" actionListener="#{dealsController.destroy}" update=":growl,datalist" disabled="#{empty dealsController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:scrollPanel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    
+           
+    <ui:composition>
+
+        <p:dialog id="DealsCreateDlg" widgetVar="DealsCreateDialog" modal="true"  resizable="false" height="500" width="450"  appendTo="@(body)" header="Новый контакт">
+            <h:form id="DealsCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid rendered="#{dealsController.selected != null}" style="width: 400px">
+                                                
+                        <p:row>
+                            <p:column colspan="2" style="width: 150px; background-color: buttonface">
+                                <p:outputLabel value="Контакт"/>
+                            </p:column>
+                        </p:row> 
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="ID сделки" for="id"/>
+                            </p:column>
+                            <p:column style="width: 200px">
+                               <p:inputText id="id" value="#{dealsController.selected.id}" title="ID сделки" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_id}"/>
+                            </p:column>
+                        </p:row> 
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Контакт" for="contactId" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="contactId" value="#{dealsController.selected.contactId}" title="Контакт" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_contactId}"/>
+                            </p:column>
+                        </p:row> 
+                        <p:row>
+                            <p:column style="width: 150px">                                             
+                                <p:outputLabel value="Кол-во взрослых" for="adults" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu style="width: 112px" id="adults" value="#{dealsController.selected.adults}" title="Кол-во взрослых" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_adults}">
+                                    <f:selectItem itemLabel="1" itemValue="1" />
+                                    <f:selectItem itemLabel="2" itemValue="2" />
+                                    <f:selectItem itemLabel="3" itemValue="3" />
+                                    <f:selectItem itemLabel="4" itemValue="4" />
+                                    <f:selectItem itemLabel="5" itemValue="5" />
+                                    <f:selectItem itemLabel="6" itemValue="6" />
+                                    <f:selectItem itemLabel="7" itemValue="7" />
+                                    <f:selectItem itemLabel="8" itemValue="8" />
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row> 
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Кол-во детей" for="childrens" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu style="width: 112px" id="childrens" value="#{dealsController.selected.childrens}" title="Кол-во детей" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_childrens}">
+                                    <f:selectItem itemLabel="1" itemValue="1" />
+                                    <f:selectItem itemLabel="2" itemValue="2" />
+                                    <f:selectItem itemLabel="3" itemValue="3" />
+                                    <f:selectItem itemLabel="4" itemValue="4" />
+                                    <f:selectItem itemLabel="5" itemValue="5" />
+                                    <f:selectItem itemLabel="6" itemValue="6" />
+                                    <f:selectItem itemLabel="7" itemValue="7" />
+                                    <f:selectItem itemLabel="8" itemValue="8" />
+                                </p:selectOneMenu>  
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Источник" for="source" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu  style="width: 112px" id="source" value="#{dealsController.selected.source}" title="Источник" >
+                                    <f:selectItem itemLabel="Тел. звонок" itemValue="Телефонный звонок" />
+                                    <f:selectItem itemLabel="Агент" itemValue="Агент" />
+                                    <f:selectItem itemLabel="Знакомство" itemValue="Знакомство" />
+                                    <f:selectItem itemLabel="JivoSite" itemValue="JivoSite" />
+                                    <f:selectItem itemLabel="Booking.com" itemValue="Booking.com" />
+                                </p:selectOneMenu>  
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">    
+                                <p:outputLabel value="Комментарий" for="comment" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputTextarea rows="2" id="comment" value="#{dealsController.selected.comment}" title="Комментарий" />
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                    
+                    <p:panelGrid rendered="#{dealsController.selected != null}" style="width: 400px">
+                        <p:row>
+                            <p:column colspan="2" style="width: 150px; background-color: buttonface">
+                                <p:outputLabel value="Основная услуга"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">  
+                                <p:outputLabel value="Тип услуги" for="mainServiceType"/>
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu  style="width: 112px" id="mainServiceType" value="#{dealsController.selected.mainServiceType}" title="Тип услуги" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_mainServiceType}">
+                                    <p:ajax listener="#{dealsController.listOfServicesCreation()}" update="serviceName"/>
+                                    <f:selectItem itemLabel="(нет)" itemValue=""/>
+                                    <f:selectItem itemLabel="Отель" itemValue="Отель" />
+                                    <f:selectItem itemLabel="Ренткар" itemValue="Ренткар" />
+                                    <f:selectItem itemLabel="Трансфер" itemValue="Трансфер" />
+                                    <f:selectItem itemLabel="Экскурсии" itemValue="Экскурсии" />
+                                    <f:selectItem itemLabel="Яхта" itemValue="Яхта" /> -->
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">       
+                                <p:outputLabel value="Услуга" for="serviceName" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu style="width: 112px" id="serviceName" value="#{dealsController.selected.serviceName}" autoWidth="false" filter="true" filterMatchMode="contains">
+                                    <p:ajax listener="#{dealsController.listOfRoomsCreation()}" update="serviceDetails" />
+                                    <f:selectItem itemLabel="(нет)" itemValue=""/>
+                                    <f:selectItems value="#{dealsController.hotelsName}"/>
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Детали услуги" for="serviceDetails" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu style="width: 112px" id="serviceDetails" value="#{dealsController.selected.serviceDetails}" autoWidth="false" title="Детали услуги" >
+                                    <f:selectItems value="#{dealsController.listOfRooms}"/>
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Доп. информация" for="additionalInfo" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalInfo" value="#{dealsController.selected.additionalInfo}" title="Доп. информация" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Тур. такса" for="touristTax" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:selectOneMenu  style="width: 112px" id="touristTax" value="#{dealsController.selected.touristTax}" title="Тур. такса">
+                                    <f:selectItem itemLabel="Включена" itemValue="Включена" />
+                                    <f:selectItem itemLabel="Дополнительно" itemValue="Дополнительно" />
+                                </p:selectOneMenu>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Депозит" for="deposite" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="deposite" value="#{dealsController.selected.deposite}" title="Депозит" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Web" for="webUrl" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="webUrl" value="#{dealsController.selected.webUrl}" title="Линк" />
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                     
+                    <p:panelGrid rendered="#{dealsController.selected != null}" style="width: 400px">
+                        <p:row>
+                            <p:column colspan="2" style="width: 150px; background-color: buttonface">
+                                <p:outputLabel value="Дополнительные услуги"/>
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px"> 
+                                <p:outputLabel value="Доп. услуга" for="additionalService1" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalService1" value="#{dealsController.selected.additionalService1}" title="Доп. услуга" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Цена DSA" for="additionalService1DsaPrice" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalService1DsaPrice" value="#{dealsController.selected.additionalService1DsaPrice}" title="Цена DSA" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Цена партнера" for="additionalService1PartnerPrice" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalService1PartnerPrice" value="#{dealsController.selected.additionalService1PartnerPrice}" title="Цена партнера" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Доп. услуга" for="additionalService2" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalService2" value="#{dealsController.selected.additionalService2}" title="Доп. услуга" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Цена DSA" for="additionalService2DsaPrice" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalService2DsaPrice" value="#{dealsController.selected.additionalService2DsaPrice}" title="Цена DSA" />
+                            </p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column style="width: 150px">
+                                <p:outputLabel value="Цена партнера" for="additionalService2PartnerPrice" />
+                            </p:column>
+                            <p:column style="width: 200px">
+                                <p:inputText id="additionalService2PartnerPrice" value="#{dealsController.selected.additionalService2PartnerPrice}" title="Цена партнера" />
+                            </p:column>
+                        </p:row>
+                    </p:panelGrid>
+                    
+                    <p:panelGrid columns="2" rendered="#{dealsController.selected != null}" style="width: 400px">
+                        <f:facet name="header">
+                                <h:outputText value="Расчет стоимости"/>
+                        </f:facet>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p1StartDate}" for="p1StartDate" />
+                        <p:calendar id="p1StartDate" widgetVar="p1SDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p1StartDate}" title="#{resources1.EditDealsTitle_p1StartDate}"  showOn="button"/>
+                                          
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p1EndDate}" for="p1EndDate" />
+                        <p:calendar id="p1EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p1EndDate}" title="#{resources1.EditDealsTitle_p1EndDate}"  showOn="button"/>
+                                              
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p1AmountOfDays}" for="p1AmountOfDays" />
+                        <p:inputText id="p1AmountOfDays" onclick="difference1()" value="#{dealsController.selected.p1AmountOfDays}" title="#{resources1.CreateDealsTitle_p1AmountOfDays}" >
+                            <script type="text/javascript" language="javascript">
+                                function difference1() {
+                                  var startDate = new Date((document.getElementById('DealsCreateForm:p1StartDate_input').value).toString());      
+                                  var endDate = new Date ((document.getElementById('DealsCreateForm:p1EndDate_input').value).toString());
+                                  var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                                  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                             
+                                  document.getElementById('DealsCreateForm:p1AmountOfDays').value = diffDays;
+                                }
+                            </script>
+                        </p:inputText>
+                        
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p1DsaPrice}" for="p1DsaPrice" />
+                        <p:inputText id="p1DsaPrice" value="#{dealsController.selected.p1DsaPrice}" title="#{resources1.CreateDealsTitle_p1DsaPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p1PartnerPrice}" for="p1PartnerPrice" />
+                        <p:inputText id="p1PartnerPrice" value="#{dealsController.selected.p1PartnerPrice}" title="#{resources1.CreateDealsTitle_p1PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p1Fix}" for="p1Fix" />
+                        <p:inputText id="p1Fix" value="#{dealsController.selected.p1Fix}" title="#{resources1.CreateDealsTitle_p1Fix}" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_p1Fix}"/>
+                        
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p2StartDate}" for="p2StartDate" />
+                        <p:calendar id="p2StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p2StartDate}" title="#{resources1.EditDealsTitle_p2StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p2EndDate}" for="p2EndDate" />
+                        <p:calendar id="p2EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p2EndDate}" title="#{resources1.EditDealsTitle_p2EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p2AmountOfDays}" for="p2AmountOfDays" />
+                        <p:inputText id="p2AmountOfDays" onclick="difference2()" value="#{dealsController.selected.p2AmountOfDays}" title="#{resources1.CreateDealsTitle_p2AmountOfDays}" >
+                            <script type="text/javascript" language="javascript">
+                                function difference2() {
+                                  var startDate = new Date((document.getElementById('DealsCreateForm:p2StartDate_input').value).toString());      
+                                  var endDate = new Date ((document.getElementById('DealsCreateForm:p2EndDate_input').value).toString());
+                                  var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                                  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                             
+                                  document.getElementById('DealsCreateForm:p2AmountOfDays').value = diffDays;
+                                }
+                            </script>
+                        </p:inputText>
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p2DsaPrice}" for="p2DsaPrice" />
+                        <p:inputText id="p2DsaPrice" value="#{dealsController.selected.p2DsaPrice}" title="#{resources1.CreateDealsTitle_p2DsaPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p2PartnerPrice}" for="p2PartnerPrice" />
+                        <p:inputText id="p2PartnerPrice" value="#{dealsController.selected.p2PartnerPrice}" title="#{resources1.CreateDealsTitle_p2PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p2Fix}" for="p2Fix" />
+                        <p:inputText id="p2Fix" value="#{dealsController.selected.p2Fix}" title="#{resources1.CreateDealsTitle_p2Fix}" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_p2Fix}"/>
+                        
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p3StartDate}" for="p3StartDate" />
+                        <p:calendar id="p3StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p3StartDate}" title="#{resources1.EditDealsTitle_p3StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p3EndDate}" for="p3EndDate" />
+                        <p:calendar id="p3EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p3EndDate}" title="#{resources1.EditDealsTitle_p3EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p3AmountOfDays}" for="p3AmountOfDays" />
+                        <p:inputText id="p3AmountOfDays" onclick="difference3()" value="#{dealsController.selected.p3AmountOfDays}" title="#{resources1.CreateDealsTitle_p3AmountOfDays}" >
+                            <script type="text/javascript" language="javascript">
+                                function difference3() {
+                                  var startDate = new Date((document.getElementById('DealsCreateForm:p3StartDate_input').value).toString());      
+                                  var endDate = new Date ((document.getElementById('DealsCreateForm:p3EndDate_input').value).toString());
+                                  var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                                  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                             
+                                  document.getElementById('DealsCreateForm:p3AmountOfDays').value = diffDays;
+                                }
+                            </script>
+                        </p:inputText>
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p3DsaPrice}" for="p3DsaPrice" />
+                        <p:inputText id="p3DsaPrice" value="#{dealsController.selected.p3DsaPrice}" title="#{resources1.CreateDealsTitle_p3DsaPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p3PartnerPrice}" for="p3PartnerPrice" />
+                        <p:inputText id="p3PartnerPrice" value="#{dealsController.selected.p3PartnerPrice}" title="#{resources1.CreateDealsTitle_p3PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p3Fix}" for="p3Fix" />
+                        <p:inputText id="p3Fix" value="#{dealsController.selected.p3Fix}" title="#{resources1.CreateDealsTitle_p3Fix}" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_p3Fix}"/>
+                        
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p4StartDate}" for="p4StartDate" />
+                        <p:calendar id="p4StartDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p4StartDate}" title="#{resources1.EditDealsTitle_p4StartDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p4EndDate}" for="p4EndDate" />
+                        <p:calendar id="p4EndDate" pattern="MM/dd/yyyy HH:mm:ss" value="#{dealsController.selected.p4EndDate}" title="#{resources1.EditDealsTitle_p4EndDate}"  showOn="button"/>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p4AmountOfDays}" for="p4AmountOfDays" />
+                        <p:inputText id="p4AmountOfDays" onclick="difference4()" value="#{dealsController.selected.p4AmountOfDays}" title="#{resources1.CreateDealsTitle_p4AmountOfDays}" >
+                            <script type="text/javascript" language="javascript">
+                                function difference4() {
+                                  var startDate = new Date((document.getElementById('DealsCreateForm:p4StartDate_input').value).toString());      
+                                  var endDate = new Date ((document.getElementById('DealsCreateForm:p4EndDate_input').value).toString());
+                                  var timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                                  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+                             
+                                  document.getElementById('DealsCreateForm:p4AmountOfDays').value = diffDays;
+                                }
+                            </script>
+                        </p:inputText>
+                        
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p4DsaPrice}" for="p4DsaPrice" />
+                        <p:inputText id="p4DsaPrice" value="#{dealsController.selected.p4DsaPrice}" title="#{resources1.CreateDealsTitle_p4DsaPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p4PartnerPrice}" for="p4PartnerPrice" />
+                        <p:inputText id="p4PartnerPrice" value="#{dealsController.selected.p4PartnerPrice}" title="#{resources1.CreateDealsTitle_p4PartnerPrice}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_p4Fix}" for="p4Fix" />
+                        <p:inputText id="p4Fix" value="#{dealsController.selected.p4Fix}" title="#{resources1.CreateDealsTitle_p4Fix}" required="true" requiredMessage="#{resources1.CreateDealsRequiredMessage_p4Fix}"/>
+                    </p:panelGrid>
+                        
+                    <p:panelGrid columns="2" rendered="#{dealsController.selected != null}" style="width: 400px">
+                        <f:facet name="header">
+                                <h:outputText value="Скидки"/>
+                        </f:facet>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_discountDsaPerc}" for="discountDsaPerc" />
+                        <p:inputText id="discountDsaPerc" value="#{dealsController.selected.discountDsaPerc}" title="#{resources1.CreateDealsTitle_discountDsaPerc}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_discountPartnerPerc}" for="discountPartnerPerc" />
+                        <p:inputText id="discountPartnerPerc" value="#{dealsController.selected.discountPartnerPerc}" title="#{resources1.CreateDealsTitle_discountPartnerPerc}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_discountDsaEuro}" for="discountDsaEuro" />
+                        <p:inputText id="discountDsaEuro" value="#{dealsController.selected.discountDsaEuro}" title="#{resources1.CreateDealsTitle_discountDsaEuro}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_discountPartnerEuro}" for="discountPartnerEuro" />
+                        <p:inputText id="discountPartnerEuro" value="#{dealsController.selected.discountPartnerEuro}" title="#{resources1.CreateDealsTitle_discountPartnerEuro}" />
+                    </p:panelGrid>
+                        
+                    <p:panelGrid columns="2" rendered="#{dealsController.selected != null}" style="width: 400px">
+                        <f:facet name="header">
+                                <h:outputText value="Аванс"/>
+                        </f:facet>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_avansDsaPerc}" for="avansDsaPerc" />
+                        <p:inputText id="avansDsaPerc" value="#{dealsController.selected.avansDsaPerc}" title="#{resources1.CreateDealsTitle_avansDsaPerc}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_avansDsaEuro}" for="avansDsaEuro" />
+                        <p:inputText id="avansDsaEuro" value="#{dealsController.selected.avansDsaEuro}" title="#{resources1.CreateDealsTitle_avansDsaEuro}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_avansPartnerCalc}" for="avansPartnerCalc" />
+                        <p:inputText id="avansPartnerCalc" value="#{dealsController.selected.avansPartnerCalc}" title="#{resources1.CreateDealsTitle_avansPartnerCalc}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_avansPartnerPaid}" for="avansPartnerPaid" />
+                        <p:inputText id="avansPartnerPaid" value="#{dealsController.selected.avansPartnerPaid}" title="#{resources1.CreateDealsTitle_avansPartnerPaid}" />
+                    </p:panelGrid>
+                        
+                    <p:panelGrid columns="2" rendered="#{dealsController.selected != null}" style="width: 400px">
+                        <f:facet name="header">
+                                <h:outputText value="Результаты расчета"/>
+                        </f:facet>
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_commonPriceDsa}" for="commonPriceDsa" />
+                        <p:inputText id="commonPriceDsa" value="#{dealsController.selected.commonPriceDsa}" title="#{resources1.CreateDealsTitle_commonPriceDsa}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_commonPricePartner}" for="commonPricePartner" />
+                        <p:inputText id="commonPricePartner" value="#{dealsController.selected.commonPricePartner}" title="#{resources1.CreateDealsTitle_commonPricePartner}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_deltaPartner}" for="deltaPartner" />
+                        <p:inputText id="deltaPartner" value="#{dealsController.selected.deltaPartner}" title="#{resources1.CreateDealsTitle_deltaPartner}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_profitDsa}" for="profitDsa" />
+                        <p:inputText id="profitDsa" value="#{dealsController.selected.profitDsa}" title="#{resources1.CreateDealsTitle_profitDsa}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_managerBonus}" for="managerBonus" />
+                        <p:inputText id="managerBonus" value="#{dealsController.selected.managerBonus}" title="#{resources1.CreateDealsTitle_managerBonus}" />
+                        <p:outputLabel value="#{resources1.CreateDealsLabel_agentBonus}" for="agentBonus" />
+                        <p:inputText id="agentBonus" value="#{dealsController.selected.agentBonus}" title="#{resources1.CreateDealsTitle_agentBonus}" />
+                        <f:facet name="footer">
+                            <p:commandButton actionListener="#{dealsController.create}" value="#{resources1.Save}" update="display,:DealsListForm:datalist,:growl" oncomplete="handleSubmit(args,'DealsCreateDialog');"/>
+                            <p:commandButton value="#{resources1.Cancel}" onclick="DealsCreateDialog.hide()"/>
+                            <p:commandButton value="Calculate"/>
+                        </f:facet>
+                    
+                    </p:panelGrid>
+                                           
+                </h:panelGroup>
+              
+            </h:form>
+        </p:dialog>
+        
+        <p:dialog id="dialog1" widgetVar="dialog">
+        <h:outputText value="Dialog"/>
+    </p:dialog>
+                   
+    </ui:composition>
+    
+   
+</html>

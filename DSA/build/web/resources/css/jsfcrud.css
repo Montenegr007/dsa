@@ -1,0 +1,62 @@
+.ui-widget {
+    font-size: 12px !important;
+}
+.ui-layout-north {
+    z-index: 20 !important; 
+    overflow: visible !important;;
+}
+.ui-layout-north .ui-layout-unit-content {
+   overflow: visible !important;
+}
+
+.ui-layout-south {
+    z-index: 20 !important; 
+    overflow: hidden !important;;
+}
+.ui-layout-south .ui-layout-unit-content {
+   overflow: hidden !important;
+}
+
+.ui-widget-header {
+    text-align: center;
+    /*text-transform: uppercase;*/
+}
+.ui-button {
+    /*margin-top: 10px !important;*/
+}
+
+.ui-layout-north div.ui-layout-unit-content{
+    
+    background-color: #B0E0E6;
+    border-color:#B0E0E6;
+   
+}
+
+.ui-layout-south div.ui-layout-unit-content{
+    
+    background-color: #B0E0E6;
+    border-color: #B0E0E6;
+    
+   
+}
+
+.ui-layout-east div.ui-layout-unit-content{
+    
+    background-color: #B0E0E6;
+    border-color: #B0E0E6;
+   
+}
+
+.ui-layout-center div.ui-layout-unit-content{
+    
+    background-color: #B0E0E6;
+    border-color: #B0E0E6;
+   
+}
+
+.ui-clock {
+    background-color: transparent;
+    border: none;
+    
+    
+}

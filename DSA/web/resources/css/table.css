@@ -1,0 +1,15 @@
+.ui-datatable .ui-datatable-header {
+    background-color: transparent;
+}
+
+.ui-datatable .ui-paginator{
+    background-color: transparent;
+}
+
+.ui-datatable .ui-row-toggler {
+     background-color: transparent;
+}
+
+.ui-datatable .ui-expanded-row .ui-expanded-row-content{
+    background-color: transparent;
+}

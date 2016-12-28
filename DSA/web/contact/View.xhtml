@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ContactViewDlg" widgetVar="ContactViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{resources.ViewContactTitle}">
+            <h:form id="ContactViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{contactController.selected != null}">
+                        <h:outputText value="#{resources.ViewContactLabel_id}"/>
+                        <h:outputText value="#{contactController.selected.id}" title="#{resources.ViewContactTitle_id}"/>
+                        <h:outputText value="#{resources.ViewContactLabel_firstname}"/>
+                        <h:outputText value="#{contactController.selected.firstname}" title="#{resources.ViewContactTitle_firstname}"/>
+                        <h:outputText value="#{resources.ViewContactLabel_lastname}"/>
+                        <h:outputText value="#{contactController.selected.lastname}" title="#{resources.ViewContactTitle_lastname}"/>
+                        <h:outputText value="#{resources.ViewContactLabel_type}"/>
+                        <h:outputText value="#{contactController.selected.type}" title="#{resources.ViewContactTitle_type}"/>
+                        <h:outputText value="#{resources.ViewContactLabel_source}"/>
+                        <h:outputText value="#{contactController.selected.source}" title="#{resources.ViewContactTitle_source}"/>
+                        <h:outputText value="#{resources.ViewContactLabel_dateofbirth}"/>
+                        <h:outputText value="#{contactController.selected.dateofbirth}" title="#{resources.ViewContactTitle_dateofbirth}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{resources.ViewContactLabel_comment}"/>
+                        <h:outputText value="#{contactController.selected.comment}" title="#{resources.ViewContactTitle_comment}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{resources.Close}" onclick="ContactViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

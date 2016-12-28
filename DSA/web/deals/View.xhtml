@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DealsViewDlg" widgetVar="DealsViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{resources1.ViewDealsTitle}">
+            <h:form id="DealsViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{dealsController.selected != null}">
+                        <h:outputText value="#{resources1.ViewDealsLabel_id}"/>
+                        <h:outputText value="#{dealsController.selected.id}" title="#{resources1.ViewDealsTitle_id}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_contactId}"/>
+                        <h:outputText value="#{dealsController.selected.contactId}" title="#{resources1.ViewDealsTitle_contactId}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_adults}"/>
+                        <h:outputText value="#{dealsController.selected.adults}" title="#{resources1.ViewDealsTitle_adults}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_childrens}"/>
+                        <h:outputText value="#{dealsController.selected.childrens}" title="#{resources1.ViewDealsTitle_childrens}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_source}"/>
+                        <h:outputText value="#{dealsController.selected.source}" title="#{resources1.ViewDealsTitle_source}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_comment}"/>
+                        <h:outputText value="#{dealsController.selected.comment}" title="#{resources1.ViewDealsTitle_comment}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_mainServiceType}"/>
+                        <h:outputText value="#{dealsController.selected.mainServiceType}" title="#{resources1.ViewDealsTitle_mainServiceType}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_serviceName}"/>
+                        <h:outputText value="#{dealsController.selected.serviceName}" title="#{resources1.ViewDealsTitle_serviceName}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_serviceDetails}"/>
+                        <h:outputText value="#{dealsController.selected.serviceDetails}" title="#{resources1.ViewDealsTitle_serviceDetails}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalInfo}"/>
+                        <h:outputText value="#{dealsController.selected.additionalInfo}" title="#{resources1.ViewDealsTitle_additionalInfo}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_touristTax}"/>
+                        <h:outputText value="#{dealsController.selected.touristTax}" title="#{resources1.ViewDealsTitle_touristTax}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_deposite}"/>
+                        <h:outputText value="#{dealsController.selected.deposite}" title="#{resources1.ViewDealsTitle_deposite}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_webUrl}"/>
+                        <h:outputText value="#{dealsController.selected.webUrl}" title="#{resources1.ViewDealsTitle_webUrl}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalService1}"/>
+                        <h:outputText value="#{dealsController.selected.additionalService1}" title="#{resources1.ViewDealsTitle_additionalService1}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalService1DsaPrice}"/>
+                        <h:outputText value="#{dealsController.selected.additionalService1DsaPrice}" title="#{resources1.ViewDealsTitle_additionalService1DsaPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalService1PartnerPrice}"/>
+                        <h:outputText value="#{dealsController.selected.additionalService1PartnerPrice}" title="#{resources1.ViewDealsTitle_additionalService1PartnerPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalService2}"/>
+                        <h:outputText value="#{dealsController.selected.additionalService2}" title="#{resources1.ViewDealsTitle_additionalService2}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalService2DsaPrice}"/>
+                        <h:outputText value="#{dealsController.selected.additionalService2DsaPrice}" title="#{resources1.ViewDealsTitle_additionalService2DsaPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_additionalService2PartnerPrice}"/>
+                        <h:outputText value="#{dealsController.selected.additionalService2PartnerPrice}" title="#{resources1.ViewDealsTitle_additionalService2PartnerPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p1StartDate}"/>
+                        <h:outputText value="#{dealsController.selected.p1StartDate}" title="#{resources1.ViewDealsTitle_p1StartDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p1EndDate}"/>
+                        <h:outputText value="#{dealsController.selected.p1EndDate}" title="#{resources1.ViewDealsTitle_p1EndDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p1AmountOfDays}"/>
+                        <h:outputText value="#{dealsController.selected.p1AmountOfDays}" title="#{resources1.ViewDealsTitle_p1AmountOfDays}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p1DsaPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p1DsaPrice}" title="#{resources1.ViewDealsTitle_p1DsaPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p1PartnerPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p1PartnerPrice}" title="#{resources1.ViewDealsTitle_p1PartnerPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p1Fix}"/>
+                        <h:outputText value="#{dealsController.selected.p1Fix}" title="#{resources1.ViewDealsTitle_p1Fix}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p2StartDate}"/>
+                        <h:outputText value="#{dealsController.selected.p2StartDate}" title="#{resources1.ViewDealsTitle_p2StartDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p2EndDate}"/>
+                        <h:outputText value="#{dealsController.selected.p2EndDate}" title="#{resources1.ViewDealsTitle_p2EndDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p2AmountOfDays}"/>
+                        <h:outputText value="#{dealsController.selected.p2AmountOfDays}" title="#{resources1.ViewDealsTitle_p2AmountOfDays}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p2DsaPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p2DsaPrice}" title="#{resources1.ViewDealsTitle_p2DsaPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p2PartnerPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p2PartnerPrice}" title="#{resources1.ViewDealsTitle_p2PartnerPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p2Fix}"/>
+                        <h:outputText value="#{dealsController.selected.p2Fix}" title="#{resources1.ViewDealsTitle_p2Fix}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p3StartDate}"/>
+                        <h:outputText value="#{dealsController.selected.p3StartDate}" title="#{resources1.ViewDealsTitle_p3StartDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p3EndDate}"/>
+                        <h:outputText value="#{dealsController.selected.p3EndDate}" title="#{resources1.ViewDealsTitle_p3EndDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p3AmountOfDays}"/>
+                        <h:outputText value="#{dealsController.selected.p3AmountOfDays}" title="#{resources1.ViewDealsTitle_p3AmountOfDays}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p3DsaPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p3DsaPrice}" title="#{resources1.ViewDealsTitle_p3DsaPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p3PartnerPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p3PartnerPrice}" title="#{resources1.ViewDealsTitle_p3PartnerPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p3Fix}"/>
+                        <h:outputText value="#{dealsController.selected.p3Fix}" title="#{resources1.ViewDealsTitle_p3Fix}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p4StartDate}"/>
+                        <h:outputText value="#{dealsController.selected.p4StartDate}" title="#{resources1.ViewDealsTitle_p4StartDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p4EndDate}"/>
+                        <h:outputText value="#{dealsController.selected.p4EndDate}" title="#{resources1.ViewDealsTitle_p4EndDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p4AmountOfDays}"/>
+                        <h:outputText value="#{dealsController.selected.p4AmountOfDays}" title="#{resources1.ViewDealsTitle_p4AmountOfDays}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p4DsaPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p4DsaPrice}" title="#{resources1.ViewDealsTitle_p4DsaPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p4PartnerPrice}"/>
+                        <h:outputText value="#{dealsController.selected.p4PartnerPrice}" title="#{resources1.ViewDealsTitle_p4PartnerPrice}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_p4Fix}"/>
+                        <h:outputText value="#{dealsController.selected.p4Fix}" title="#{resources1.ViewDealsTitle_p4Fix}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_discountDsaPerc}"/>
+                        <h:outputText value="#{dealsController.selected.discountDsaPerc}" title="#{resources1.ViewDealsTitle_discountDsaPerc}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_discountPartnerPerc}"/>
+                        <h:outputText value="#{dealsController.selected.discountPartnerPerc}" title="#{resources1.ViewDealsTitle_discountPartnerPerc}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_discountDsaEuro}"/>
+                        <h:outputText value="#{dealsController.selected.discountDsaEuro}" title="#{resources1.ViewDealsTitle_discountDsaEuro}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_discountPartnerEuro}"/>
+                        <h:outputText value="#{dealsController.selected.discountPartnerEuro}" title="#{resources1.ViewDealsTitle_discountPartnerEuro}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_avansDsaPerc}"/>
+                        <h:outputText value="#{dealsController.selected.avansDsaPerc}" title="#{resources1.ViewDealsTitle_avansDsaPerc}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_avansDsaEuro}"/>
+                        <h:outputText value="#{dealsController.selected.avansDsaEuro}" title="#{resources1.ViewDealsTitle_avansDsaEuro}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_avansPartnerCalc}"/>
+                        <h:outputText value="#{dealsController.selected.avansPartnerCalc}" title="#{resources1.ViewDealsTitle_avansPartnerCalc}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_avansPartnerPaid}"/>
+                        <h:outputText value="#{dealsController.selected.avansPartnerPaid}" title="#{resources1.ViewDealsTitle_avansPartnerPaid}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_commonPriceDsa}"/>
+                        <h:outputText value="#{dealsController.selected.commonPriceDsa}" title="#{resources1.ViewDealsTitle_commonPriceDsa}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_commonPricePartner}"/>
+                        <h:outputText value="#{dealsController.selected.commonPricePartner}" title="#{resources1.ViewDealsTitle_commonPricePartner}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_deltaPartner}"/>
+                        <h:outputText value="#{dealsController.selected.deltaPartner}" title="#{resources1.ViewDealsTitle_deltaPartner}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_profitDsa}"/>
+                        <h:outputText value="#{dealsController.selected.profitDsa}" title="#{resources1.ViewDealsTitle_profitDsa}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_managerBonus}"/>
+                        <h:outputText value="#{dealsController.selected.managerBonus}" title="#{resources1.ViewDealsTitle_managerBonus}"/>
+                        <h:outputText value="#{resources1.ViewDealsLabel_agentBonus}"/>
+                        <h:outputText value="#{dealsController.selected.agentBonus}" title="#{resources1.ViewDealsTitle_agentBonus}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{resources1.Close}" onclick="DealsViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
